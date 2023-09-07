@@ -21,8 +21,8 @@ class Rectangle:
             height (int): The height of the new rectangle.
         """
         type(self).number_of_instances += 1
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -77,6 +77,15 @@ class Rectangle:
         if rect_1.area() >= rect_2.area():
             return (rect_1)
         return (rect_2)
+
+    @classmethod
+    def square(cls, size=0):
+        """Return a new Rectangle with width and height equal to size.
+
+        Args:
+            size (int): The width and height of the new Rectangle.
+        """
+        return (cls(size, size))
 
     def __str__(self):
         """Return the printable representation of the Rectangle.
