@@ -84,77 +84,78 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
-    """Show the Rectangle on the screen using the `#` symbol."""
-    if self.width == 0 or self.height == 0:
+        """Show the Rectangle on the screen using the `#` symbol."""
+        if self.width == 0 or self.height == 0:
         print("")
         return
 
-    # Print empty lines for the vertical position
-    [print("") for y in range(self.y)]
-    for h in range(self.height):
-        # Print spaces for the horizontal position
-        [print(" ", end="") for x in range(self.x)]
-        # Print `#` symbols for the rectangle shape
-        [print("#", end="") for w in range(self.width)]
-        print("")
+        # Print empty lines for the vertical position
+        [print("") for _ in range(self.y)]
+        for _ in range(self.height):
+            # Print spaces for the horizontal position
+            [print(" ", end="") for _ in range(self.x)]
+            # Print `#` symbols for the rectangle shape
+            [print("#", end="") for _ in range(self.width)]
+            print("")
+    
 
-def update(self, *args, **kwargs):
-    """Change the Rectangle attributes.
+    def update(self, *args, **kwargs):
+        """Change the Rectangle attributes.
 
-    Args:
-        *args (ints): New values for the attributes.
-            - 1st value is for id attribute
-            - 2nd value is for width attribute
-            - 3rd value is for height attribute
-            - 4th value is for x attribute
-            - 5th value is for y attribute
-        **kwargs (dict): New key/value pairs for the attributes.
-    """
-    if args and len(args) != 0:
-        a = 0
-        for arg in args:
-            if a == 0:
-                if arg is None:
-                    # Reset the rectangle to default values
-                    self.__init__(self.width, self.height, self.x, self.y)
-                else:
-                    # Set the id to the given value
-                    self.id = arg
-            elif a == 1:
-                # Set the width to the given value
-                self.width = arg
-            elif a == 2:
-                # Set the height to the given value
-                self.height = arg
-            elif a == 3:
-                # Set the x position to the given value
-                self.x = arg
-            elif a == 4:
-                # Set the y position to the given value
-                self.y = arg
-            a += 1
+        Args:
+            *args (ints): New values for the attributes.
+                - 1st value is for id attribute
+                - 2nd value is for width attribute
+                - 3rd value is for height attribute
+                - 4th value is for x attribute
+                - 5th value is for y attribute
+            **kwargs (dict): New key/value pairs for the attributes.
+        """
+        if args and len(args) != 0:
+            a = 0
+            for arg in args:
+                if a == 0:
+                    if arg is None:
+                        # Reset the rectangle to default values
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        # Set the id to the given value
+                        self.id = arg
+                elif a == 1:
+                    # Set the width to the given value
+                    self.width = arg
+                elif a == 2:
+                    # Set the height to the given value
+                    self.height = arg
+                elif a == 3:
+                    # Set the x position to the given value
+                    self.x = arg
+                elif a == 4:
+                    # Set the y position to the given value
+                    self.y = arg
+                a += 1
 
-    elif kwargs and len(kwargs) != 0:
-        for k, v in kwargs.items():
-            if k == "id":
-                if v is None:
-                    # Reset the rectangle to default values
-                    self.__init__(self.width, self.height, self.x, self.y)
-                else:
-                    # Set the id to the given value
-                    self.id = v
-            elif k == "width":
-                # Set the width to the given value
-                self.width = v
-            elif k == "height":
-                # Set the height to the given value
-                self.height = v
-            elif k == "x":
-                # Set the x position to the given value
-                self.x = v
-            elif k == "y":
-                # Set the y position to the given value
-                self.y = v
+        elif kwargs and len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == "id":
+                    if v is None:
+                        # Reset the rectangle to default values
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        # Set the id to the given value
+                        self.id = v
+                elif k == "width":
+                    # Set the width to the given value
+                    self.width = v
+                elif k == "height":
+                    # Set the height to the given value
+                    self.height = v
+                elif k == "x":
+                    # Set the x position to the given value
+                    self.x = v
+                elif k == "y":
+                    # Set the y position to the given value
+                    self.y = v
 
 
     def to_dictionary(self):
@@ -170,5 +171,5 @@ def update(self, *args, **kwargs):
     def __str__(self):
         """Make a string that shows the rectangle's id, position and dimensions."""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x, self.y, # the x and y coordinates of the top-left corner of the rectangle
-                                                       self.width, self.height) # the width and height of the rectangle
+                                                       self.x, self.y,
+                                                       self.width, self.height)
