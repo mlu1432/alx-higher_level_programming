@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Read a square-printing function."""
 
 def print_square(size):
