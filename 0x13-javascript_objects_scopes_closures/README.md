@@ -1,3 +1,0 @@
-0x13. JavaScript - Objects, Scopes and Closures
-JavaScript
-table of content
