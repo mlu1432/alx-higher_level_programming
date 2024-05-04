@@ -2,20 +2,15 @@
 
 class Rectangle
 {
-    constructor(width, height)
-    {
-        if (width > 0 && height > 0)
-        {
-            this.width = width;
-            this.height = height;
-        } 
-        else
-        {
-            this.width = undefined;
-            this.height = undefined;
-        }
-    
-    }
+	constructor(w, h)
+	{
+		// Check if width and height are positive integers greater than 0
+		if (Number.isInteger(w) && Number.isInteger(h) && w > 0 && h > 0)
+		{
+			this.width = w;
+			this.height = h;
+		}
+	}
 }
 
-module.export = Rectangle;
+module.exports = Rectangle;
