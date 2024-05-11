@@ -1,9 +1,9 @@
 #!/bin/bash
 # This script sends a JSON POST request to the specified URL and displays the response body.
 
-# Check if file exists
-if [ ! -f "$2" ]; then
-    echo "File not found!"
+# Check if the file exists and if it's a readable file
+if [ ! -f "$2" ] || [ ! -r "$2" ]; then
+    echo "Error: File does not exist or cannot be read"
     exit 1
 fi
 
