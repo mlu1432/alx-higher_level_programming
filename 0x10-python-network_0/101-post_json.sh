@@ -1,11 +1,20 @@
 #!/bin/bash
-# This script sends a JSON POST request to the specified URL and displays the response body.
+# This script sends a JSON POST request to a URL and displays the body of the response.
 
-# Check if the file exists and if it's a readable file
-if [ ! -f "$2" ] || [ ! -r "$2" ]; then
-    echo "Error: File does not exist or cannot be read"
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <URL> <filename>"
     exit 1
 fi
 
-# Send a POST request with the JSON file content
-curl -s -X POST -H "Content-Type: application/json" -d @"$2" "$1"
+url=$1
+filename=$2
+
+# Check if the file exists
+if ! [ -f "$filename" ]; then
+    echo "Error: File does not exist"
+    exit 1
+fi
+
+# Use curl to send a POST request with the JSON file content
+response=$(curl -s -H "Content-Type: application/json" -d @"$filename" "$url")
+echo $response
